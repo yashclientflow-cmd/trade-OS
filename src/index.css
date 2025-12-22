@@ -1,0 +1,124 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* BASE - LIGHT THEME (Default) */
+  --text-primary: #0f172a;
+  --text-secondary: #475569;
+  --text-muted: #94a3b8;
+  --text-inverse: #ffffff;
+  
+  --bg-primary: #f8fafc;
+  --bg-surface: #ffffff;
+  --bg-elevated: #ffffff;
+  
+  --border-light: #e2e8f0;
+  --border-medium: #cbd5e1;
+  --border-strong: #94a3b8;
+  
+  --primary: #0f172a;
+  --primary-foreground: #ffffff;
+  
+  --accent: #3b82f6;
+  --accent-foreground: #ffffff;
+  
+  /* Trading Colors */
+  --profit: #10b981;
+  --loss: #ef4444;
+  --neutral: #6b7280;
+  --open: #3b82f6;
+  
+  /* Chart Colors */
+  --chart-grid: #e2e8f0;
+  --chart-tooltip: rgba(255, 255, 255, 0.95);
+}
+
+[data-theme="dark-navy"] {
+  --text-primary: #f1f5f9;
+  --text-secondary: #cbd5e1;
+  --text-muted: #64748b;
+  --text-inverse: #0f172a;
+  
+  --bg-primary: #0f172a;
+  --bg-surface: #1e293b;
+  --bg-elevated: #334155;
+  
+  --border-light: #334155;
+  --border-medium: #475569;
+  --border-strong: #64748b;
+  
+  --primary: #f8fafc;
+  --primary-foreground: #0f172a;
+  
+  --accent: #60a5fa;
+  --accent-foreground: #ffffff;
+  
+  --profit: #34d399;
+  --loss: #f87171;
+  --neutral: #94a3b8;
+  --open: #60a5fa;
+  
+  --chart-grid: #334155;
+  --chart-tooltip: rgba(30, 41, 59, 0.95);
+}
+
+[data-theme="pure-black"] {
+  --text-primary: #ffffff;
+  --text-secondary: #d4d4d8;
+  --text-muted: #71717a;
+  --text-inverse: #000000;
+  
+  --bg-primary: #000000;
+  --bg-surface: #09090b;
+  --bg-elevated: #171717;
+  
+  --border-light: #27272a;
+  --border-medium: #404040;
+  --border-strong: #525252;
+  
+  --primary: #ffffff;
+  --primary-foreground: #000000;
+  
+  --accent: #22d3ee;
+  --accent-foreground: #000000;
+  
+  --profit: #22c55e;
+  --loss: #ef4444;
+  --neutral: #71717a;
+  --open: #22d3ee;
+  
+  --chart-grid: #18181b;
+  --chart-tooltip: rgba(9, 9, 11, 0.95);
+}
+
+body {
+  @apply bg-background text-text-primary antialiased transition-colors duration-300;
+}
+
+/* Smooth transitions for all themeable properties */
+*, *::before, *::after {
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 300ms;
+}
+
+/* Exclude charts from transitions to prevent rendering artifacts */
+path {
+  transition: none;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-primary);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--border-medium);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-muted);
+}
