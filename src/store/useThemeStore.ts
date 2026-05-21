@@ -1,7 +1,5 @@
 import { create } from 'zustand';
-import { persist } from 'zustand/middleware';
 import { Theme, themes } from '../lib/theme';
-import { createIsolatedStorage } from '../lib/storage';
 
 interface ThemeStore {
   currentTheme: Theme;
@@ -11,7 +9,6 @@ interface ThemeStore {
 }
 
 export const useThemeStore = create<ThemeStore>()(
-  persist(
     (set, get) => ({
       currentTheme: 'light',
       
@@ -27,10 +24,5 @@ export const useThemeStore = create<ThemeStore>()(
       },
       
       getThemeColors: () => themes[get().currentTheme]
-    }),
-    {
-      name: 'theme_v1',
-      storage: createIsolatedStorage(),
-    }
-  )
+    })
 );

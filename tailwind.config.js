@@ -4,13 +4,14 @@ export default {
     "./index.html",
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
-  darkMode: ['class', '[data-theme="dark-navy"]', '[data-theme="pure-black"]'],
   theme: {
     extend: {
       colors: {
         background: 'var(--bg-primary)',
+        shell: 'var(--bg-shell)',
         surface: 'var(--bg-surface)',
-        elevated: 'var(--bg-elevated)',
+        subtle: 'var(--bg-subtle)',
+        'primary-soft': 'var(--bg-primary-soft)',
         
         primary: {
           DEFAULT: 'var(--primary)',
@@ -32,21 +33,21 @@ export default {
         border: {
           DEFAULT: 'var(--border-light)',
           medium: 'var(--border-medium)',
-          strong: 'var(--border-strong)',
+          strong: 'var(--border-medium)',
         },
         
         trading: {
           profit: 'var(--profit)',
           loss: 'var(--loss)',
-          neutral: 'var(--neutral)',
-          open: 'var(--open)',
+          neutral: 'var(--warning)',
+          open: 'var(--primary)',
         },
       },
       fontFamily: {
         sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
       },
       transitionDuration: {
-        '300': '300ms',
+        '200': '200ms',
       }
     },
   },

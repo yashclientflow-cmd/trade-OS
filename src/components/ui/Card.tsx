@@ -1,44 +1,20 @@
-import * as React from "react"
-import { cn } from "../../lib/utils"
+import * as React from 'react';
+import { cn } from '../../lib/utils';
 
-const Card = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement>>(
-  ({ className, ...props }, ref) => (
-    <div
-      ref={ref}
-      className={cn("rounded-xl border border-border bg-surface text-text-primary shadow-sm", className)}
-      {...props}
-    />
-  )
-)
-Card.displayName = "Card"
+const Card = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement>>(({ className, ...props }, ref) => (
+  <div
+    ref={ref}
+    className={cn('premium-card rounded-[30px] text-text-primary transition duration-300 hover:-translate-y-1 hover:shadow-[0_26px_60px_rgba(27,39,76,0.14)]', className)}
+    {...props}
+  />
+));
 
-const CardHeader = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement>>(
-  ({ className, ...props }, ref) => (
-    <div
-      ref={ref}
-      className={cn("flex flex-col space-y-1.5 p-6", className)}
-      {...props}
-    />
-  )
-)
-CardHeader.displayName = "CardHeader"
+Card.displayName = 'Card';
 
-const CardTitle = React.forwardRef<HTMLParagraphElement, React.HTMLAttributes<HTMLHeadingElement>>(
-  ({ className, ...props }, ref) => (
-    <h3
-      ref={ref}
-      className={cn("text-2xl font-semibold leading-none tracking-tight text-text-primary", className)}
-      {...props}
-    />
-  )
-)
-CardTitle.displayName = "CardTitle"
+const CardContent = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement>>(({ className, ...props }, ref) => (
+  <div ref={ref} className={cn('p-5', className)} {...props} />
+));
 
-const CardContent = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement>>(
-  ({ className, ...props }, ref) => (
-    <div ref={ref} className={cn("p-6 pt-0", className)} {...props} />
-  )
-)
-CardContent.displayName = "CardContent"
+CardContent.displayName = 'CardContent';
 
-export { Card, CardHeader, CardTitle, CardContent }
+export { Card, CardContent };

@@ -3,7 +3,6 @@ import { useNavigate } from 'react-router-dom';
 import { useSettingsStore } from '../store/useSettingsStore';
 import { useTradesStore } from '../store/useTradesStore';
 import { useAuthStore } from '../store/useAuthStore';
-import { ThemeToggle } from '../components/ThemeToggle';
 import { SettingsSection } from '../components/SettingsSection';
 import { HelpSupportSection } from '../components/HelpSupportSection';
 import { Button } from '../components/ui/Button';
@@ -185,39 +184,6 @@ const Settings = () => {
                   </button>
                 ))}
               </div>
-            </div>
-          </div>
-        </SettingsSection>
-
-        {/* APPEARANCE SECTION */}
-        <SettingsSection title="Appearance" icon={<Palette className="w-5 h-5" />}>
-          <div className="space-y-4">
-            <div className="flex items-center justify-between">
-              <span className="text-sm font-medium text-text-primary">Theme Mode</span>
-              <ThemeToggle />
-            </div>
-            
-            <div className="space-y-2">
-              <label className="text-xs font-medium text-text-secondary">Chart Density</label>
-              <Select 
-                value={display.chartDensity}
-                onChange={(e) => updateDisplay({ chartDensity: e.target.value as any })}
-              >
-                <option value="Compact">Compact</option>
-                <option value="Normal">Normal</option>
-                <option value="Detailed">Detailed</option>
-              </Select>
-            </div>
-
-            <div className="flex items-center justify-between">
-              <div className="space-y-0.5">
-                <div className="text-sm font-medium text-text-primary">Animations</div>
-                <div className="text-xs text-text-muted">Enable smooth transitions</div>
-              </div>
-              <Switch 
-                checked={display.animations}
-                onCheckedChange={(c) => updateDisplay({ animations: c })}
-              />
             </div>
           </div>
         </SettingsSection>

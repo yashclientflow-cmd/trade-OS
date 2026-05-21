@@ -1,9 +1,7 @@
 import { create } from 'zustand';
-import { persist } from 'zustand/middleware';
 import { Trade } from '../types';
 import { v4 as uuidv4 } from 'uuid';
 import { getWeekNumber } from '../utils/calculations';
-import { createIsolatedStorage } from '../lib/storage';
 
 interface TradeStore {
   trades: Trade[];
@@ -16,7 +14,6 @@ interface TradeStore {
 }
 
 export const useTradesStore = create<TradeStore>()(
-  persist(
     (set) => ({
       trades: [],
       addTrade: (tradeData) => {
@@ -64,10 +61,5 @@ export const useTradesStore = create<TradeStore>()(
         set((state) => ({ trades: [...state.trades, ...newTrades] }));
       },
       clearAllTrades: () => set({ trades: [] }),
-    }),
-    {
-      name: 'trades_v1', // Key suffix
-      storage: createIsolatedStorage(), // Use isolated storage
-    }
-  )
+    })
 );

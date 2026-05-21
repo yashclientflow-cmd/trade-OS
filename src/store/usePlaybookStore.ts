@@ -1,8 +1,6 @@
 import { create } from 'zustand';
-import { persist } from 'zustand/middleware';
 import { PlaybookSetup } from '../types';
 import { v4 as uuidv4 } from 'uuid';
-import { createIsolatedStorage } from '../lib/storage';
 
 interface PlaybookStore {
   setups: PlaybookSetup[];
@@ -13,7 +11,6 @@ interface PlaybookStore {
 }
 
 export const usePlaybookStore = create<PlaybookStore>()(
-  persist(
     (set) => ({
       setups: [],
       addSetup: (setupData) => {
@@ -53,10 +50,5 @@ export const usePlaybookStore = create<PlaybookStore>()(
           }),
         }));
       },
-    }),
-    {
-      name: 'playbook_v1',
-      storage: createIsolatedStorage(),
-    }
-  )
+    })
 );
